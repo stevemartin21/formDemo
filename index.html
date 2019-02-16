@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Form Demo</title>
+  </head>
+  <body>
+      <div class="container mt-5 mb-5">
+          <h1 class="text-center mt-5 mb-5">Form Demo</h1>
+        <form >
+                <div class="form-group">
+                  <label for="firstInput">Please Enter Number  10</label>
+                  <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number" id="firstInput">
+                  
+                </div>
+                <div class="form-group">
+                        <label for="firstInput">Please Enter Number less than 10</label>
+                        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter number" id="secondInput">      
+                </div>
+  
+               
+                <button type="submit" class="btn btn-primary" id="myButton">Submit</button>
+        </form>
+
+        <div class="mt-5" id="hiddenDiv">
+
+                <a href=" http://somedomain.com/cart/add?id=PRODUCTID&quantity=INPUTVALUE" ><button type="button" class="btn btn-primary" id="hideShowLink">Submit To Link</button></a>
+
+                
+
+        </div>
+
+    </div>
+
+    <script>
+
+const firstInput = document.getElementById('firstInput');
+const secondInput = document.getElementById('secondInput');
+const hideShowLink = document.getElementById('hideShowLink');
+const hiddenDiv = document.getElementById('hiddenDiv');
+
+const myButton = document.getElementById('myButton');
+let firstValidation = false;
+let secondValidation = false;
+
+hideShowLink.style.display = 'none';
+hiddenDiv.style.display = 'none';
+
+myButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(firstInput.value);
+    console.log(secondInput.value);
+    console.log(hideShowLink);
+
+    if(firstInput.value == 10) {
+        firstValidation = true;
+        console.log(firstValidation);
+    } else {
+        alert('Please enter the number 10');
+
+    }
+
+    if(secondInput.value < 10  && secondInput.value !== '') {
+        secondValidation = true;
+        console.log(secondValidation);
+    }else {
+        alert('Please enter a number less than 10');
+    }
+
+    if(firstValidation && secondValidation) {
+        hiddenDiv.style.display = 'block';
+        hideShowLink.style.display = 'block';  
+    } else {
+        alert('Keep trying and try again')
+    }
+})
+
+hideShowLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Congrats you have clicked on the link and stayed on the same page');
+    hideShowLink.style.display = 'none';
+})
+    
+    </script>
+        
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
